@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/textViewDateOutput"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:text="Date"
+        android:textColor="@color/black"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textViewCurrTempOutput"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="currTemp"
+        android:textColor="@color/black"
+        app:layout_constraintStart_toStartOf="@+id/textViewDateOutput"
+        app:layout_constraintTop_toBottomOf="@+id/textViewDateOutput" />
+
+    <TextView
+        android:id="@+id/textViewMaxTempOutput"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:text="MaxTempOut"
+        android:textColor="@color/black"
+        app:layout_constraintStart_toEndOf="@+id/textViewCurrTempOutput"
+        app:layout_constraintTop_toTopOf="@+id/textViewCurrTempOutput" />
+
+    <TextView
+        android:id="@+id/textViewMinTempOutput"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:text="MinTempOut"
+        android:textColor="@color/black"
+        app:layout_constraintStart_toEndOf="@+id/textViewMaxTempOutput"
+        app:layout_constraintTop_toTopOf="@+id/textViewMaxTempOutput" />
+
+    <TextView
+        android:id="@+id/textViewHumidityForecast"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="Humidity"
+        android:textColor="@color/black"
+        app:layout_constraintStart_toStartOf="@+id/textViewCurrTempOutput"
+        app:layout_constraintTop_toBottomOf="@+id/textViewCurrTempOutput" />
+
+    <TextView
+        android:id="@+id/textViewCloudCover"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="Clouds"
+        android:textColor="@color/black"
+        app:layout_constraintStart_toStartOf="@+id/textViewHumidityForecast"
+        app:layout_constraintTop_toBottomOf="@+id/textViewHumidityForecast" />
+
+    <ImageView
+        android:id="@+id/imageViewForecast"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:srcCompat="@tools:sample/avatars" />
+</androidx.constraintlayout.widget.ConstraintLayout>
