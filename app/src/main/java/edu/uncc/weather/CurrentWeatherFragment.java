@@ -88,30 +88,10 @@ public class CurrentWeatherFragment extends Fragment {
     String windDeg;
     String cloudiness;
 
-    TextView cityOut;
-    TextView tempOut;
-    TextView tempMaxOut;
-    TextView tempMinOut;
-    TextView descOut;
-    TextView humidityOut;
-    TextView windSpeedOut;
-    TextView windDegOut;
-    TextView cloudOut;
-    Button checkForecastBtn;
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         getActivity().setTitle("Current Weather");
-        checkForecastBtn = view.findViewById(R.id.buttonCheckForecast);
-        cityOut = view.findViewById(R.id.textViewCity);
-        tempOut = view.findViewById(R.id.textViewTempOutput);
-        tempMaxOut = view.findViewById(R.id.textViewTempMaxOutput);
-        tempMinOut = view.findViewById(R.id.textViewTempMinOutput);
-        descOut = view.findViewById(R.id.textViewDescriptionOutput);
-        humidityOut = view.findViewById(R.id.textViewHumidityOutput);
-        windSpeedOut = view.findViewById(R.id.textViewWindSpeedOutput);
-        windDegOut = view.findViewById(R.id.textViewWindDegreeOutput);
-        cloudOut = view.findViewById(R.id.textViewCloudinessOutput);
 
         String locationToQuery = mCity.getCity() + "," + mCity.getCountry();
 
@@ -199,21 +179,30 @@ public class CurrentWeatherFragment extends Fragment {
                                 getActivity().runOnUiThread(new Runnable() {  //This is how you change ui with stuff done on the thread.
                                     @Override
                                     public void run() {
-                                        cityOut.setText(mCity.getCity());
+                                        binding.textViewCity.setText(mCity.getCity());
+                                        //cityOut.setText(mCity.getCity());
                                         DecimalFormat df = new DecimalFormat("0.00##");
                                         temp = df.format(Double.valueOf(temp));
-                                        tempOut.setText(temp + " F");
+                                        binding.textViewTempOutput.setText(temp + " F");
+                                        //tempOut.setText(temp + " F");
                                         tempMax = df.format(Double.valueOf(tempMax));
-                                        tempMaxOut.setText(tempMax + " F");
+                                        binding.textViewTempMaxOutput.setText(tempMax + " F");
+                                        //tempMaxOut.setText(tempMax + " F");
                                         tempMin = df.format(Double.valueOf(tempMin));
-                                        tempMinOut.setText(tempMin + " F");
-                                        descOut.setText(desc);
-                                        humidityOut.setText(humidity + "%");
-                                        windSpeedOut.setText(windSpeed + " mph");
-                                        windDegOut.setText(windDeg + " degrees");
-                                        cloudOut.setText(cloudiness + "%");
+                                        binding.textViewTempMinOutput.setText(tempMin + " F");
+                                        //tempMinOut.setText(tempMin + " F");
+                                        binding.textViewDescriptionOutput.setText(desc);
+                                        //descOut.setText(desc);
+                                        binding.textViewHumidityOutput.setText(humidity + "%");
+                                        //humidityOut.setText(humidity + "%");
+                                        binding.textViewWindSpeedOutput.setText(windSpeed + "mph");
+                                        //windSpeedOut.setText(windSpeed + " mph");
+                                        binding.textViewWindDegreeOutput.setText(windDeg + " degree");
+                                        //windDegOut.setText(windDeg + " degrees");
+                                        binding.textViewCloudinessOutput.setText(cloudiness + "%");
+                                        //cloudOut.setText(cloudiness + "%");
 
-                                        checkForecastBtn.setOnClickListener(new View.OnClickListener() {
+                                        binding.buttonCheckForecast.setOnClickListener(new View.OnClickListener() {
                                             @Override
                                             public void onClick(View view) {
                                                 mCurrentWeatherFragment.checkForecastTap(lat, lon, mCity.getCity(), desc);
@@ -240,7 +229,7 @@ public class CurrentWeatherFragment extends Fragment {
             mCurrentWeatherFragment = (ICurrentWeatherFragment) context;
         }
         else {
-            throw new RuntimeException(context.toString() + " must implement ICurrentWeatherFragment");
+            throw new RuntimeException(context + " must implement ICurrentWeatherFragment");
         }
     }
 
