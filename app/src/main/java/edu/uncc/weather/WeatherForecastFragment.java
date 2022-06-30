@@ -150,8 +150,6 @@ public class WeatherForecastFragment extends Fragment {
                             forecastDataArrList.add(new ForecastData(date, currTemp, tempMax, tempMin, humidity, desc));
                         }
 
-
-
                     } catch (JSONException e) {
                         e.printStackTrace();
                     }
