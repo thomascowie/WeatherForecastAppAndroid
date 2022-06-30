@@ -132,7 +132,7 @@ public class WeatherForecastFragment extends Fragment {
 
                         for(int i = 0; i < 5; i++) {
                             main = list.getJSONObject(i).getJSONObject("main");
-                            Log.d(TAG, "onResponse: " + main.toString());
+                            Log.d(TAG, "onResponse: " + main);
                             date = "Wouldnt work bc object isnt named so wont let me get it";
                             Log.d(TAG, "onResponse: " + date);
                             currTemp = main.getString("temp");
