@@ -154,7 +154,6 @@ public class WeatherForecastFragment extends Fragment {
                         e.printStackTrace();
                     }
 
-
                     getActivity().runOnUiThread(new Runnable() {  //This is how you change ui with stuff done on the thread.
                         @Override
                         public void run() {
@@ -167,30 +166,6 @@ public class WeatherForecastFragment extends Fragment {
                 }
             }
         });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
         return view;
     }
